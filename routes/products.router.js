@@ -17,17 +17,41 @@ router.get("/", (req, res) =>{
   res.json(products);
 });
 
-router.get("/filter", (req, res) => {
-  res.send("Yo soy un filter");
-});
-
 
 router.get("/:id", (req,res) => {
   const { id } = req.params;
   res.json({
     id,
-    name: "Product 1",
-    price: 1000
+    name: faker.commerce.productName(),
+    price: parseInt(faker.commerce.price()),
+    image: faker.image.imageUrl()
+  });
+});
+
+router.post("/", (req, res) => {
+  const body = req.body;
+  console.log(body);
+  res.json({
+    message: "created product",
+    data: body
+  });
+});
+
+router.patch("/:id", (req, res) => {
+  const { id } = req.params;
+  const body = req.body;
+  res.json({
+    message: "update",
+    data: body,
+    id
+  });
+});
+
+router.delete("/:id", (req, res) => {
+  const { id } = req.params;
+  res.json({
+    message: "deleted",
+    id
   });
 });
 
