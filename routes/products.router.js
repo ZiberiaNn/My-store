@@ -1,57 +1,51 @@
 const express = require("express");
 const faker = require("faker");
+const ProductService = require("../services/product.service");
+
 const router = express.Router();
+const service = new ProductService();
 
-
-router.get("/", (req, res) =>{
-  const products = [];
-  const { size } = req.query;
-  const limit = size || 10;
-  for(let i=0; i<limit  ; i++){
-    products.push({
-      name: faker.commerce.productName(),
-      price: parseInt(faker.commerce.price()),
-      image: faker.image.imageUrl()
-    })
-  }
-  res.json(products);
+router.get("/", async (req, res) => {
+  const products = await service.find();
+  res.status(200).json(products);
 });
 
 
-router.get("/:id", (req,res) => {
+router.get("/:id", async (req, res) => {
   const { id } = req.params;
-  res.json({
-    id,
-    name: faker.commerce.productName(),
-    price: parseInt(faker.commerce.price()),
-    image: faker.image.imageUrl()
-  });
+  const product = await service.findOne(id);
+  res.status(200).json(product);
 });
 
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   const body = req.body;
-  console.log(body);
-  res.json({
+  const newProduct = await service.create(body);
+  res.status(201).json({
     message: "created product",
-    data: body
+    data: newProduct
   });
 });
 
-router.patch("/:id", (req, res) => {
-  const { id } = req.params;
-  const body = req.body;
-  res.json({
-    message: "update",
-    data: body,
-    id
-  });
+router.patch("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const body = req.body;
+    const newProduct = await service.update(id, body);
+    res.json({
+      message: "updated product",
+      data: newProduct,
+    });
+  } catch (error) {
+    res.status(404).json({message: error.message});
+  }
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", async (req, res) => {
   const { id } = req.params;
+  const deletedProduct = await service.delete(id);
   res.json({
-    message: "deleted",
-    id
+    message: "deleted product",
+    data: deletedProduct
   });
 });
 
