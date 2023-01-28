@@ -28,7 +28,7 @@ router.post("/", (req, res) => {
   const body = req.body;
   console.log(body);
   res.json({
-    message: "created user",
+    message: "Created user",
     data: body
   });
 });
@@ -37,7 +37,7 @@ router.patch("/:id", (req, res) => {
   const { id } = req.params;
   const body = req.body;
   res.json({
-    message: "update",
+    message: "Updated user",
     data: body,
     id
   });
@@ -46,7 +46,7 @@ router.patch("/:id", (req, res) => {
 router.delete("/:id", (req, res) => {
   const { id } = req.params;
   res.json({
-    message: "deleted",
+    message: "Deleted user",
     id
   });
 });
