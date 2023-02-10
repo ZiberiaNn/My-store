@@ -1,5 +1,6 @@
 const faker = require("faker");
 const boom = require("@hapi/boom");
+const pool = require("../libs/postgres.pool");
 
 class UserService{
   constructor(){
@@ -19,7 +20,8 @@ class UserService{
   }
 
   async find(){
-    return this.users;
+    const response = await pool.query("SELECT * FROM tasks");
+    return response.rows;
   }
 
   async findOne(id){
