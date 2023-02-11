@@ -1,7 +1,6 @@
 const faker = require("faker");
 const boom = require("@hapi/boom");
-const pool = require("../libs/postgres.pool");
-
+const { models } = require('./../libs/sequelize');
 class UserService{
   constructor(){
     this.users = [];
@@ -20,8 +19,8 @@ class UserService{
   }
 
   async find(){
-    const response = await pool.query("SELECT * FROM tasks");
-    return response.rows;
+    const response = await models.User.findAll();
+    return response;
   }
 
   async findOne(id){
