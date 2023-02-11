@@ -3,10 +3,6 @@ const boom = require("@hapi/boom");
 const { models } = require("./../libs/sequelize");
 class ProductService {
 
-  constructor() {
-    this.products = [];
-  }
-
   async create(data) {
     const newProduct = await models.Product.create(data);
     return newProduct;
@@ -19,7 +15,7 @@ class ProductService {
 
   async findOne(id) {
     const product = await models.Product.findByPk(id);
-    if (!product){
+    if (!product) {
       throw boom.notFound("User not found");
     }
     return product;

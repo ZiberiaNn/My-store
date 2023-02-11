@@ -21,11 +21,11 @@ function boomErrorHandler(err,req,res,next){
   }
 }
 
-function queryErrorHandler(err,req,res,next){
-  if(err instanceof ValidationError){
-    boomErrorHandler(boom.badRequest(err), req, res, next);
+function queryErrorHandler (err, req, res, next) {
+  if (err instanceof ValidationError) {
+    throw boom.conflict(err.errors[0].message)
   }
-  next(err);
+  next(err)
 }
 
 module.exports = { logErrors, errorHandler, boomErrorHandler, queryErrorHandler }
