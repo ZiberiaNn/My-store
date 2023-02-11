@@ -15,6 +15,12 @@ const ProductSchema = {
   price: {
     allowNull: false,
     type: DataTypes.FLOAT
+  },
+  createdAt: {
+    allowNull: false,
+    type: DataTypes.DATE,
+    field: "created_at",
+    defaultValue: Sequelize.NOW
   }
 }
 
