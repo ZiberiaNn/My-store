@@ -5,6 +5,7 @@ const CUSTOMER_TABLE = "customers";
 const CustomerSchema = {
   id: {
     allowNull: false,
+    autoIncrement: true,
     primaryKey: true,
     type: DataTypes.INTEGER
   },
@@ -24,6 +25,7 @@ const CustomerSchema = {
   },
   userId: {
     field: "user_id",
+    unique: true,
     allowNull: false,
     type: DataTypes.INTEGER,
     references: {
@@ -31,7 +33,7 @@ const CustomerSchema = {
       key: 'id'
     },
     onUpdate: 'CASCADE',
-    onDelete: 'CASCADE'
+    onDelete: 'SET NULL'
   }
 }
 
