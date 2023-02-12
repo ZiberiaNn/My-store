@@ -21,7 +21,6 @@ class CustomerService {
     const customer = await models.Customer.create(data,{
       include: ['user']
     });
-    console.log(customer);
     return customer;
   }
 
