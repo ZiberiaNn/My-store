@@ -5,6 +5,10 @@ const customerId = Joi.number().integer();
 const status = Joi.string();
 const comments = Joi.string();
 
+const productId = Joi.number().integer();
+const productAmount = Joi.number().integer().min(1);
+
+
 
 const createOrderSchema = Joi.object({
     customerId: customerId.required(),
@@ -22,4 +26,9 @@ const getOrderSchema = Joi.object({
   id: id.required(),
 });
 
-module.exports = { createOrderSchema, getOrderSchema, updateOrderSchema }
+const addItemSchema = Joi.object({
+  productId: productId.required(),
+  productAmount: productAmount.required()
+})
+
+module.exports = { createOrderSchema, getOrderSchema, updateOrderSchema, addItemSchema }
