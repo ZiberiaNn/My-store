@@ -11,6 +11,21 @@ const OrderSchema= {
     primaryKey: true,
     type: DataTypes.INTEGER
   },
+  status: {
+    allowNull: false,
+    type: DataTypes.STRING
+  },
+  comments: {
+    allowNull: true,
+    type: DataTypes.STRING
+  },
+
+  createdAt: {
+    allowNull: false,
+    type: DataTypes.DATE,
+    field: "created_at",
+    defaultValue: Sequelize.NOW
+  },
   customerId: {
     field: "customer_id",
     allowNull: false,
@@ -21,12 +36,6 @@ const OrderSchema= {
       },
       onUpdate: 'CASCADE',
       onDelete: 'SET NULL'
-  },
-  createdAt: {
-    allowNull: false,
-    type: DataTypes.DATE,
-    field: "created_at",
-    defaultValue: Sequelize.NOW
   }
 }
 
