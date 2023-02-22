@@ -9,6 +9,7 @@ const port  = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors());
+require("./utils/auth");
 
 app.get("/", checkApiKey, (req, res) =>{
   res.send("Hi, server in Express.");
