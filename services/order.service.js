@@ -31,9 +31,18 @@ class OrderService {
     const order = await models.Order.findByPk(id, {
       include: [{
         association: 'customer',
-        include: ['user']
+        attributes: ['name', 'phone'],
+        include: [
+          {
+            association: 'user',
+            attributes: ['id', 'email']
+          }
+        ]
       },
-        'items'
+      {
+        association: 'items',
+        attributes: ['id', 'name', 'price', 'categoryId']
+      }
       ]
     });
     if (!order) {
