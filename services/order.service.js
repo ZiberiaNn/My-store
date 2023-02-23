@@ -51,6 +51,30 @@ class OrderService {
     return order;
   }
 
+  async findByUserId(userId) {
+    const response = await models.Order.findAll({
+      where: {
+        '$customer.user.id$': userId
+      },
+      include: [{
+        association: 'customer',
+        attributes: ['name', 'phone'],
+        include: [
+          {
+            association: 'user',
+            attributes: ['id', 'email']
+          }
+        ]
+      },
+      {
+        association: 'items',
+        attributes: ['id', 'name', 'price', 'categoryId']
+      }
+      ]
+    });
+    return response;
+  }
+
   async update(id, newData) {
     const order = await this.findOne(id);
     const response = await order.update(newData);
