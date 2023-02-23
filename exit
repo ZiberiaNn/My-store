@@ -1,0 +1,209 @@
+[33mcommit fea8a8cc8eaf459bcaecb529dd7cde5408149cfb[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Wed Feb 22 22:55:38 2023 -0500
+
+    Feat: Implementing JWT
+
+[33mcommit d926fc972e13d510a17205693c0c01e444e17a5c[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Tue Feb 21 22:55:36 2023 -0500
+
+    Feat: Passport login endpoint
+
+[33mcommit ac17bf40d8de97d849152456545836c31d0b5997[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Tue Feb 21 22:14:39 2023 -0500
+
+    Feat: Hashing password before saving in database
+
+[33mcommit 5500150310b80ced3f58615f62d024bc921edede[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Tue Feb 21 21:44:44 2023 -0500
+
+    Feat: Starting auth middleware
+
+[33mcommit e4bd15ff91e3b671b7d6f132531c36082ddb3828[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Tue Feb 21 21:09:09 2023 -0500
+
+    Feat: Select specific attributes from Order
+
+[33mcommit da9b529ac38db28f3e58e417d2565522f35697c6[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Tue Feb 14 21:54:20 2023 -0500
+
+    Feat: Filter products by price
+
+[33mcommit bce23fe3149b9c1dbfac2d5af8eced596741beba[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Tue Feb 14 21:33:36 2023 -0500
+
+    Feat: Products pagination
+
+[33mcommit 636cb1383eeeca0287390b6e4f1566924df3a0aa[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Mon Feb 13 17:43:45 2023 -0500
+
+    Feat: Order-Products many-to-many relation functional
+
+[33mcommit 1b40329b1bcbd32e92b1246dd338a7d30d714a28[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Mon Feb 13 11:58:19 2023 -0500
+
+    Feat: Nested order get (user and customer)
+
+[33mcommit 011ff19e36456816c313cda70566d9df01913872[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Mon Feb 13 11:53:30 2023 -0500
+
+    Feat: Order router and schema
+
+[33mcommit aae510b9fec8b404c4eb83f36533137d8e7ef497[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Mon Feb 13 11:37:22 2023 -0500
+
+    Feat: Order service
+
+[33mcommit 40336e3b26cc08a3dd0dd5bab203435896abe2be[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Mon Feb 13 11:33:19 2023 -0500
+
+    Feat: Order model
+
+[33mcommit 4fcde6022b865017051efbc04780e9b3393ddfd5[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Mon Feb 13 11:07:34 2023 -0500
+
+    Fix: Categories table name typo
+
+[33mcommit 14a8dbe347919e674dd6afed0c09207c5717af18[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Sun Feb 12 14:14:28 2023 -0500
+
+    Feat: Nested get for Categories and Products
+
+[33mcommit 640a35ccf3f8e5f9b4399986d5f49ef9efabebb2[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Sun Feb 12 14:05:10 2023 -0500
+
+    Fix: Product Schema to accept CategoryID
+
+[33mcommit cbf515664d2dc550954a636a5a4179fdccd063ab[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Sun Feb 12 14:00:57 2023 -0500
+
+    Feat: Category schema, service, router and model
+
+[33mcommit 69a2aab1d4085ac9079fdbeb5f18cdd926d6937d[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Sun Feb 12 13:33:10 2023 -0500
+
+    Fix: Posting customer bug
+
+[33mcommit 7453bea9c7a716690ca8f8c23e630515d955e1d9[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Sun Feb 12 11:13:36 2023 -0500
+
+    Feat: Relation one-to-one between Users and Customers
+
+[33mcommit 32884c9e956ab05d21c95ee6907d1c775b433534[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Sun Feb 12 10:57:43 2023 -0500
+
+    Feat: Customer model, schema, service and router
+
+[33mcommit 03babee323a67b2b5f4051d407ef7c47943f65d7[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Sat Feb 11 23:31:58 2023 -0500
+
+    Fix: DB Engine environment variable
+
+[33mcommit 675a4b158c4edb26f7410f0ced337c881737ac96[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Sat Feb 11 12:41:06 2023 -0500
+
+    Feat: Changed to MySQL
+
+[33mcommit 57a2eb3f59c124bfc69b6fae63c0d5a162cc5434[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Sat Feb 11 11:58:02 2023 -0500
+
+    Feat: User service updated
+
+[33mcommit 46f219584379ad976e6c37e3651df7c4ebc8f8cf[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Sat Feb 11 11:39:19 2023 -0500
+
+    Feat: Error handler and product service updated
+
+[33mcommit de1a5008fa40f9e91223e50b6b2d7627ccbc038e[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Sat Feb 11 10:48:53 2023 -0500
+
+    Feat: Product and User models
+
+[33mcommit 4baac6c95123322eb31998b6b3cd6687356c0fe9[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Fri Feb 10 23:37:11 2023 -0500
+
+    Feat: Sequelized implemented
+
+[33mcommit 793ef4509e519023509ce6a667628f2bd39c3e61[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Fri Feb 10 22:07:30 2023 -0500
+
+    Feat: Env example and docker file updated
+
+[33mcommit 126159d53f9e658f3846bbd5fa4f89b3c7989b5c[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Fri Feb 10 13:03:31 2023 -0500
+
+    Feat: Connection to DB
+
+[33mcommit a925f1f32c337cf192626343d2fc4fc141066b6d[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Sat Jan 28 02:28:19 2023 -0500
+
+    Feat: PORT env variable
+
+[33mcommit 97757c59bc0731a0bcdddb006d7bc3130340ae3d[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Sat Jan 28 02:01:36 2023 -0500
+
+    Feat: User schema validations
+
+[33mcommit 98d1b495c12d24ce59acffff1ec188cfd1567866[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Fri Jan 27 20:07:37 2023 -0500
+
+    Feat: User service
+
+[33mcommit b3cd8b428b7f58981b5a3e974520ae69fbc6dbd6[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Fri Jan 27 19:27:30 2023 -0500
+
+    Feat: Validations and error handlers
+
+[33mcommit 2a7b134b9df638aa640978f94e3219ba99447a9e[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Wed Jan 25 23:26:54 2023 -0500
+
+    Feat: Product Service
+
+[33mcommit eef65eab7675fa85baa761fbc7afb9fee70e1bf0[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Wed Jan 25 20:12:04 2023 -0500
+
+    Feat: Products and Users CRUD done
+
+[33mcommit f71990fd073ad6ce4890c0d25c979c8b4be68301[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Wed Jan 25 19:41:28 2023 -0500
+
+    Feat: Categories, products and users routers implemented
+
+[33mcommit 2d49a31d3ff908c02c89d7c941deb6b2ea510358[m
+Author: Santiago Jaramillo Ocampo <jaramilloocamposantiago@gmail.com>
+Date:   Wed Jan 25 15:50:23 2023 -0500
+
+    Initial dev environment setup
