@@ -1,18 +1,26 @@
 const express = require("express");
+const passport = require('passport');
+
 const validatorHandler = require("../middlewares/validator.handler");
+const { checkRole } = require("./../middlewares/auth.handler");
 const CustomerService = require("../services/customer.service");
 const { createCustomerSchema, updateCustomerSchema, getCustomerSchema } = require("../schemas/customer.schema");
 
 const router = express.Router();
 const service = new CustomerService();
 
-router.get("/", async (req, res) => {
-  const customers = await service.find();
-  res.status(200).json(customers);
-});
+router.get("/",
+  passport.authenticate("jwt", { session: false }),
+  checkRole('admin'),
+  async (req, res) => {
+    const customers = await service.find();
+    res.status(200).json(customers);
+  });
 
 router.get("/:id",
   validatorHandler(getCustomerSchema, "params"),
+  passport.authenticate("jwt", { session: false }),
+  checkRole('admin'),
   async (req, res, next) => {
     try {
       const { id } = req.params;
@@ -25,6 +33,8 @@ router.get("/:id",
 
 router.post("/",
   validatorHandler(createCustomerSchema, "body"),
+  passport.authenticate("jwt", { session: false }),
+  checkRole('admin'),
   async (req, res, next) => {
     try {
       const body = req.body;
@@ -40,6 +50,8 @@ router.post("/",
 
 router.patch("/:id",
   validatorHandler(updateCustomerSchema, "body"),
+  passport.authenticate("jwt", { session: false }),
+  checkRole('admin'),
   async (req, res, next) => {
     try {
       const { id } = req.params;
@@ -54,17 +66,19 @@ router.patch("/:id",
     }
   });
 
-router.delete("/:id", async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const deletedCustomerId = await service.delete(id);
-    res.json({
-      message: "Deleted customer",
-      id: deletedCustomerId
-    });
-  } catch (error) {
-    next(error);
-  }
-});
+router.delete("/:id", passport.authenticate("jwt", { session: false }),
+  checkRole('admin'),
+  async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const deletedCustomerId = await service.delete(id);
+      res.json({
+        message: "Deleted customer",
+        id: deletedCustomerId
+      });
+    } catch (error) {
+      next(error);
+    }
+  });
 
 module.exports = router;

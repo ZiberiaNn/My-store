@@ -6,13 +6,17 @@ class CustomerService {
 
   async find() {
     const response = await models.Customer.findAll({
-      include: ['user']
+      include: [
+        { association: 'user', attributes: ['id', 'email', 'role', 'createdAt'], }]
     });
     return response;
   }
 
   async findOne(id) {
-    const customer = await models.Customer.findByPk(id);
+    const customer = await models.Customer.findByPk(id, {
+      include: [
+        { association: 'user', attributes: ['id', 'email', 'role', 'createdAt'], }]
+    });
     if (!customer) {
       throw boom.notFound("Customer not found");
     }
@@ -37,12 +41,12 @@ class CustomerService {
     const hash = await bcryptjs.hash(data.user.password, 10);
     const newData = {
       ...data,
-      user :{
+      user: {
         ...data.user,
         password: hash
       }
     }
-    const customer = await models.Customer.create(newData,{
+    const customer = await models.Customer.create(newData, {
       include: ['user']
     });
     delete customer.user.dataValues.password;
