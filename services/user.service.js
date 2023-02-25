@@ -6,8 +6,8 @@ class UserService {
 
   async find() {
     const response = await models.User.findAll({
+      attributes: ['id','email','role','createdAt'],
       include: ['customer'],
-      attributes: ['id','email','role','createdAt']
     });
     return response;
   }
@@ -16,12 +16,14 @@ class UserService {
     const response = await models.User.findOne({
       where: {email}
     });
+    console.log(response);
     return response;
   }
 
   async findOne(id) {
     const user = await models.User.findByPk(id,{
-      attributes: ['id','email','role','createdAt']
+      attributes: ['id','email','role','createdAt'],
+      include: ['customer'],
     });
     if (!user) {
       throw boom.notFound("User not found");

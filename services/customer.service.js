@@ -19,6 +19,20 @@ class CustomerService {
     return customer;
   }
 
+
+  async findByUserId(userId) {
+    const customer = await models.Customer.findOne({
+      where: {
+        userId: userId
+      }
+    });
+    if (!customer) {
+      throw boom.notFound("Customer not found");
+    }
+    return customer;
+  }
+
+
   async create(data) {
     const hash = await bcryptjs.hash(data.user.password, 10);
     const newData = {

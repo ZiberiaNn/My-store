@@ -1,12 +1,23 @@
 const boom = require("@hapi/boom");
 const { models } = require("../libs/sequelize");
 const ProductService = require("../services/product.service");
+const CustomerService = require("../services/customer.service");
 
 const productService = new ProductService();
+const customerService = new CustomerService();
 
 class OrderService {
 
   async create(data) {
+    const customer = await customerService.findByUserId(data.userId);
+    if(!customer){
+      throw boom.notFound('customer not found');
+    }
+    const customerId = customer.dataValues.id;
+    data = {
+      customerId: customerId,
+      ...data
+    }
     const newOrder = await models.Order.create(data);
     return newOrder;
   }

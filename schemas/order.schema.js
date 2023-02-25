@@ -8,10 +8,8 @@ const comments = Joi.string();
 const productId = Joi.number().integer();
 const productAmount = Joi.number().integer().min(1);
 
-
-
 const createOrderSchema = Joi.object({
-    customerId: customerId.required(),
+    customerId: customerId,
     status: status.required(),
     comments: comments
 });
