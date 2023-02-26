@@ -21,7 +21,7 @@ class UserService {
 
   async findOne(id) {
     const user = await models.User.findByPk(id,{
-      attributes: ['id','email','role','createdAt'],
+      attributes: ['id','email','role','createdAt', 'recoveryToken'],
       include: ['customer'],
     });
     if (!user) {
