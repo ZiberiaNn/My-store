@@ -16,7 +16,6 @@ class UserService {
     const response = await models.User.findOne({
       where: {email}
     });
-    console.log(response);
     return response;
   }
 
