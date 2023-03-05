@@ -15,5 +15,6 @@ const config = {
     nodeMailerEmail: process.env.NODEMAILER_EMAIL,
     nodeMailerPassword: process.env.NODEMAILER_PASSWORD,
 }
+console.log(config.jwtSecret);
 
 module.exports = { config };
