@@ -21,8 +21,9 @@ const changePasswordAuthSchema = Joi.object({
   newPassword: newPassword.required(),
 });
 
+
 module.exports = {
   loginAuthSchema,
   recoveryAuthSchema,
-  changePasswordAuthSchema,
+  changePasswordAuthSchema
 };

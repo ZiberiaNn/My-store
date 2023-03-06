@@ -11,7 +11,8 @@ const config = {
     dbPort: process.env.DB_PORT,
     dbEngine: process.env.DB_ENGINE,
     apiKey: process.env.API_KEY,
-    jwtSecret: process.env.JWT_SECRET,
+    accessTokenSecret: process.env.ACCESS_TOKEN_SECRET,
+    refreshTokenSecret: process.env.REFRESH_TOKEN_SECRET,
     nodeMailerEmail: process.env.NODEMAILER_EMAIL,
     nodeMailerPassword: process.env.NODEMAILER_PASSWORD,
 }

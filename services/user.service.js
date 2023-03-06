@@ -19,9 +19,16 @@ class UserService {
     return response;
   }
 
+  async findByRefreshToken(refreshToken){
+    const response = await models.User.findOne({
+      where: {refreshToken}
+    });
+    return response;
+  }
+
   async findOne(id) {
     const user = await models.User.findByPk(id,{
-      attributes: ['id','email','role','createdAt', 'recoveryToken'],
+      attributes: ['id','email','role','createdAt', 'recoveryToken', 'refreshToken'],
       include: ['customer'],
     });
     if (!user) {
